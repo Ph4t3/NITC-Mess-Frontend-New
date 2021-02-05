@@ -51,7 +51,10 @@ export class AppInterceptor implements HttpInterceptor {
             (event.url.endsWith('/auth/signin') ||
               event.url.endsWith('/auth/signup'))
           ) {
-            if (event.body.user.hasOwnProperty('username')) {
+            if (
+              event.body.user.hasOwnProperty('name') &&
+              event.body.user.role === 'admin'
+            ) {
               this.authService.updateToken(event.body.token);
               this.authService.setUserDetails(event.body.user);
               this.router.navigate(['']);

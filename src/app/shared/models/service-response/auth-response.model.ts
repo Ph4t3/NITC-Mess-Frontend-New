@@ -3,8 +3,7 @@ export interface SignInResponse {
   token: string;
 }
 export interface User {
-  username: string;
   name: string;
   email: string;
-  user_type: string;
+  role: string;
 }

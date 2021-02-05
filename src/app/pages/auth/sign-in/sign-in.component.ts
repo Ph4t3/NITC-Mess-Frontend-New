@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class SignInComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({
-    username: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
   });
   hide = true;
@@ -30,7 +30,13 @@ export class SignInComponent implements OnInit {
     if (this.loginForm.valid) {
       this.authService.signIn(this.loginForm.value).subscribe(
         (res) => {
-          console.log(res);
+          if (res.user.role !== 'admin') {
+            this.snackBar.open('Not Admin User', 'Error', {
+              duration: 3000,
+              horizontalPosition: 'end',
+              verticalPosition: 'top',
+            });
+          }
         },
         (err) => {
           this.snackBar.open(err.error.errors.message, 'Error', {

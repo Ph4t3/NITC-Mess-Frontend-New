@@ -1,9 +1,9 @@
 <div class="container">
-  <mat-card>
+  <mat-card class="mat-elevation-z6">
     <mat-card-header>
       <img
         mat-card-image
-        src="../../../assets/Logo.jpg"
+        src="../../../assets/Logo.png"
         alt="Photo of a Shiba Inu"
       />
     </mat-card-header>
@@ -13,17 +13,17 @@
         [formGroup]="loginForm"
         (ngSubmit)="onLoginFormSubmit()"
       >
-        <mat-form-field appearance="outline">
-          <mat-label>Username</mat-label>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
           <mat-icon matSuffix>account_circle</mat-icon>
           <input
             type="text"
             matInput
-            placeholder="Username..."
-            formControlName="username"
+            placeholder="Email..."
+            formControlName="email"
           />
         </mat-form-field>
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="fill">
           <mat-label>Password</mat-label>
           <input
             [type]="hide ? 'password' : 'text'"
@@ -45,14 +45,6 @@
         <div class="buttons">
           <button mat-raised-button color="primary" type="submit">
             Log In
-          </button>
-          <button
-            mat-raised-button
-            type="button"
-            color="primary"
-            [routerLink]="['/sign-up']"
-          >
-            No Account?
           </button>
         </div>
       </form>

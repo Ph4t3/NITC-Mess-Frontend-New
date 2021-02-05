@@ -10,17 +10,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppInterceptor } from './shared/utils/app-network-interceptor';
 
 import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
-import { SignUpComponent } from './pages/auth/sign-up/sign-up.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PagesComponent } from './pages/pages.component';
+import { AssignMessComponent } from './pages/assign-mess/assign-mess.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
-    SignUpComponent,
     DashboardComponent,
     PagesComponent,
+    AssignMessComponent,
   ],
   imports: [
     BrowserModule,

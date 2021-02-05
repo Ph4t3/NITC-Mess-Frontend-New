@@ -3,25 +3,25 @@ import { Routes, RouterModule } from '@angular/router';
 import { PagesComponent } from './pages/pages.component';
 import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
 import { AuthGuard } from './shared/guards/auth.guard';
-import { RoleGuard } from './shared/guards/role.guard';
-import { SignUpComponent } from './pages/auth/sign-up/sign-up.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AssignMessComponent } from './pages/assign-mess/assign-mess.component';
 
 const routes: Routes = [
   {
     path: '',
     component: PagesComponent,
     canActivate: [AuthGuard],
-    canActivateChild: [RoleGuard],
     children: [
       {
         path: '',
         component: DashboardComponent,
-        data: { roles: ['SUPER_ADMIN', 'CLASSROOM_ADMIN', 'STUDENT'] },
+      },
+      {
+        path: 'assign-mess',
+        component: AssignMessComponent,
       },
     ],
   },
-  { path: 'sign-up', component: SignUpComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
 ];

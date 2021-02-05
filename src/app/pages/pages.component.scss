@@ -1,9 +1,18 @@
+.mat-toolbar {
+  display: flex;
+  justify-content: center;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  width: 80%;
+}
 .container {
   height: 80%;
 }
 .example-spacer {
   flex: 1 1 auto;
 }
-button {
+.menuButton {
   margin: 10px;
 }

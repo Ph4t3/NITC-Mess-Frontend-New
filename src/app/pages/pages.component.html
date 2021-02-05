@@ -1,7 +1,27 @@
-<mat-toolbar color="primary">
-  <span [routerLink]="['']" style="cursor: pointer; outline: 0">NSS Diary</span>
-  <span class="example-spacer"></span>
-  <button mat-raised-button color="primary" (click)="onLogout()">Logout</button>
+<mat-toolbar class="mat-elevation-z6" color="primary">
+  <div class="wrapper">
+    <img
+      src="../../assets/logo_white.png"
+      style="margin: 10px; width: 50px; height: 50px"
+      alt=""
+    />
+    <span [routerLink]="['']" style="cursor: pointer; outline: 0">
+      Mess Management
+    </span>
+    <span class="example-spacer"></span>
+    <button class="menuButton" mat-stroked-button [matMenuTriggerFor]="menu">
+      Manage
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink]="['/assign-mess']">Assign Mess</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
+    <button class="menuButton" mat-stroked-button (click)="onLogout()">
+      <mat-icon>logout</mat-icon>
+      Logout
+    </button>
+  </div>
 </mat-toolbar>
 <div class="container">
   <router-outlet></router-outlet>
