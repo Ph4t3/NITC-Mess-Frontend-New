@@ -5,6 +5,7 @@ import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AssignMessComponent } from './pages/assign-mess/assign-mess.component';
+import { ManageStudentComponent } from './pages/manage-student/manage-student.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,14 @@ const routes: Routes = [
       {
         path: 'assign-mess',
         component: AssignMessComponent,
+      },
+      {
+        path: 'manage-student/:id',
+        component: ManageStudentComponent,
+      },
+      {
+        path: 'manage-student',
+        component: ManageStudentComponent,
       },
     ],
   },

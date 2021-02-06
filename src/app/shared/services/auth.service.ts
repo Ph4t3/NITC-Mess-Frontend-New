@@ -48,12 +48,16 @@ export class AuthService {
       localStorage.removeItem('user');
     }
   }
-  public getUserDetails(): User {
+  public getUserDetails(): User | null {
     const user = localStorage.getItem('user');
     if (user !== null) {
       return JSON.parse(user);
+    } else {
+      this.signOut();
+      this.router.navigate(['/sign-in']);
     }
-    return { email: '', role: '', name: '' };
+
+    return null;
   }
 
   public getToken(): string {

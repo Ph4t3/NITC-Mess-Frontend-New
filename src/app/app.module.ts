@@ -3,6 +3,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SharedModule } from './shared/shared.module';
+import { AgGridModule } from 'ag-grid-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,8 @@ import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PagesComponent } from './pages/pages.component';
 import { AssignMessComponent } from './pages/assign-mess/assign-mess.component';
+import { ButtonRendererComponent } from './shared/components/ButtonRenderer.component';
+import { ManageStudentComponent } from './pages/manage-student/manage-student.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,8 @@ import { AssignMessComponent } from './pages/assign-mess/assign-mess.component';
     DashboardComponent,
     PagesComponent,
     AssignMessComponent,
+    ButtonRendererComponent,
+    ManageStudentComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +33,7 @@ import { AssignMessComponent } from './pages/assign-mess/assign-mess.component';
     BrowserAnimationsModule,
     SharedModule,
     FontAwesomeModule,
+    AgGridModule.withComponents([]),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true },

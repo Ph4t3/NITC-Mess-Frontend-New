@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.ag-theme-alpine .ag-root-wrapper {
+  border-radius: 7px;
+  border: 0;
+  box-shadow: rgb(103 58 183 / 62%) 0px 0px 0px 1px;
+}

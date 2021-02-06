@@ -9,7 +9,7 @@ import { User } from '../shared/models/service-response/auth-response.model';
   styleUrls: ['./pages.component.scss'],
 })
 export class PagesComponent implements OnInit {
-  user: User;
+  user: User | null;
   constructor(private authService: AuthService, private router: Router) {
     this.user = this.authService.getUserDetails();
   }

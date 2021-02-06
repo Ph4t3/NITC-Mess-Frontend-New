@@ -1,1 +1,16 @@
-<p>assign-mess works!</p>
+<div class="container">
+  <ag-grid-angular
+    style="padding: 15px 20px; height: 100%; min-height: 600px"
+    class="ag-theme-alpine"
+    pagination
+    [rowData]="rowData"
+    [animateRows]="true"
+    [columnDefs]="columnDefs"
+    [resizable]="true"
+    [frameworkComponents]="frameworkComponents"
+    [paginationAutoPageSize]="true"
+    [context]="context"
+    (gridReady)="onGridReady($event)"
+  >
+  </ag-grid-angular>
+</div>

@@ -1,5 +1,5 @@
 {
-  "name": "NITC Mess Frontend New",
+  "name": "NITC_Mess_Frontend_New",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -24,6 +24,8 @@
     "@fortawesome/angular-fontawesome": "^0.8.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "ag-grid-angular": "^25.0.1",
+    "ag-grid-community": "^25.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
