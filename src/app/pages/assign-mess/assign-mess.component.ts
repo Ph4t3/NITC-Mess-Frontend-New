@@ -102,8 +102,4 @@ export class AssignMessComponent implements OnInit {
     this.gridColumnApi = params.columnApi;
     params.api.sizeColumnsToFit();
   }
-
-  methodFromParent(cell: string) {
-    alert('Parent Component Method from ' + cell + '!');
-  }
 }
