@@ -1,4 +1,4 @@
 export const environment = {
-  apiEndpoint: 'http://example.com',
+  apiEndpoint: 'https://mess.nikhilrajesh.com',
   production: true,
 };
