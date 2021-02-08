@@ -16,10 +16,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   exports: [
     MatToolbarModule,
+    MatNativeDateModule,
     MatSnackBarModule,
     MatFormFieldModule,
     MatIconModule,
