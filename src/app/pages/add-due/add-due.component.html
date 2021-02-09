@@ -1,0 +1,42 @@
+<div class="container">
+  <mat-card>
+    <form id="addDueForm" [formGroup]="addDueForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Roll No</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="rollNumber"
+          [matAutocomplete]="auto"
+        />
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option
+            *ngFor="let option of filteredStudents | async"
+            [value]="option.rollNumber"
+          >
+            {{option.rollNumber}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Amount</mat-label>
+        <input matInput type="number" formControlName="amount" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Item</mat-label>
+        <input matInput formControlName="message" placeholder="Biscuits" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Date</mat-label>
+        <input matInput formControlName="date" [max]="today" [matDatepicker]="picker" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Add</button>
+    </form>
+  </mat-card>
+</div>

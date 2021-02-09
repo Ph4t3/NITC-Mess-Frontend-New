@@ -14,9 +14,13 @@
       <mat-icon>arrow_drop_down</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink]="['/add-due']">Add Dues</button>
       <button mat-menu-item [routerLink]="['/assign-mess']">Assign Mess</button>
       <button mat-menu-item [routerLink]="['/manage-student']">
         Manage Student
+      </button>
+      <button mat-menu-item [routerLink]="['/enrolled-students']">
+        Enrolled Students
       </button>
     </mat-menu>
     <button class="menuButton" mat-stroked-button (click)="onLogout()">

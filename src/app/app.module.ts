@@ -11,21 +11,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppInterceptor } from './shared/utils/app-network-interceptor';
 
 import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PagesComponent } from './pages/pages.component';
 import { AssignMessComponent } from './pages/assign-mess/assign-mess.component';
 import { ButtonRendererComponent } from './shared/components/ButtonRenderer.component';
 import { ManageStudentComponent } from './pages/manage-student/manage-student.component';
+import { EnrolledStudentsComponent } from './pages/enrolled-students/enrolled-students.component';
+import { AddDueComponent } from './pages/add-due/add-due.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
-    DashboardComponent,
     PagesComponent,
     AssignMessComponent,
     ButtonRendererComponent,
     ManageStudentComponent,
+    EnrolledStudentsComponent,
+    AddDueComponent,
   ],
   imports: [
     BrowserModule,

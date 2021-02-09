@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -22,6 +22,8 @@ export class ManageStudentComponent implements OnInit {
   students: DueStudent[] = [];
   filteredStudents!: Observable<DueStudent[]>;
   rowData: DailyDue[] = [];
+  monthStart: Date;
+  monthEnd: Date;
 
   gridApi!: any;
   gridColumnApi!: any;
@@ -65,6 +67,9 @@ export class ManageStudentComponent implements OnInit {
     private snackBar: MatSnackBar,
     private route: ActivatedRoute
   ) {
+    var date = new Date();
+    this.monthStart = new Date(date.getFullYear(), date.getMonth(), 1);
+    this.monthEnd = new Date(date.getFullYear(), date.getMonth() + 1, 0);
     this.getUsers();
   }
 
@@ -75,6 +80,39 @@ export class ManageStudentComponent implements OnInit {
         startWith(''),
         map((value) => this._filterStudents(value))
       );
+  }
+
+  checkRollNo(roll: string) {
+    let data = this.students.find((item) => item.rollNumber === roll);
+    return !!data;
+  }
+
+  onMesscut() {
+    let roll = this.studentDetails.get('rollNumber')!.value;
+    if (this.checkRollNo(roll)) {
+      let data = this.messCutForm.value;
+
+      if (data.start && data.end) {
+        data.start = new Date(data.start).getTime();
+        data.end = new Date(data.end).getTime();
+        data.rollNumber = roll;
+
+        this.dueService.messCut(data).subscribe(
+          (res) => {
+              console.log(res);
+            this.snackBar.open('Mess Cut Processed', 'Success');
+            this.getDues();
+          },
+          (err) => {
+            this.snackBar.open('Server Error', 'Error');
+          }
+        );
+      } else {
+        this.snackBar.open('Select a date', 'Error');
+      }
+    } else {
+      this.snackBar.open('User not present in mess', 'Error');
+    }
   }
 
   changeStudent(rollNumber: any) {
